@@ -18,23 +18,27 @@ public class ClientDetails {
 
 	@Id
 	@Column(name = "policy_no")
-	@CsvBindByName(column="policyno")
+	@CsvBindByName(column = "policyno")
 	private Integer policyNo;
 
 	@Column(name = "name")
+	@CsvBindByName(column = "name")
 	private String name;
 
 	@Column(name = "date_of_comm")
-	@CsvCustomBindByName(column="commencementdate",converter= DateConverter.class) 
-	private Date commencementDate;
+	@CsvCustomBindByName(column = "commencementdate", converter = DateConverter.class)
+	private LocalDate commencementDate;
 
 	@Column(name = "plan_term")
+	@CsvBindByName(column = "planterm")
 	private String planTerm;
 
 	@Column(name = "premium_mode")
-	private char mode;
+	@CsvBindByName(column = "mode")
+	private String mode;
 
 	@Column(name = "premium")
+	@CsvBindByName(column = "premium")
 	private Double premium;
 
 	@Column(name = "place")
@@ -51,7 +55,7 @@ public class ClientDetails {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ClientDetails(Integer policyNo, String name, Date commencementDate, String planTerm, char mode,
+	public ClientDetails(Integer policyNo, String name, LocalDate commencementDate, String planTerm, String mode,
 			Double premium, String location, LocalDate dateOfBirth, LocalDate maturityDate) {
 		super();
 		this.policyNo = policyNo;
@@ -64,8 +68,8 @@ public class ClientDetails {
 		this.dateOfBirth = dateOfBirth;
 		this.maturityDate = maturityDate;
 	}
- 
-	 public Integer getPolicyNo() {
+
+	public Integer getPolicyNo() {
 		return policyNo;
 	}
 
@@ -81,11 +85,11 @@ public class ClientDetails {
 		this.name = name;
 	}
 
-	public Date getCommencementDate() {
+	public LocalDate getCommencementDate() {
 		return commencementDate;
 	}
-	
-	public void setCommencementDate(Date commencementDate) {
+
+	public void setCommencementDate(LocalDate commencementDate) {
 		this.commencementDate = commencementDate;
 	}
 
@@ -97,11 +101,11 @@ public class ClientDetails {
 		this.planTerm = planTerm;
 	}
 
-	public char getMode() {
+	public String getMode() {
 		return mode;
 	}
 
-	public void setMode(char mode) {
+	public void setMode(String mode) {
 		this.mode = mode;
 	}
 
